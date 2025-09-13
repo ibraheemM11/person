@@ -1,0 +1,199 @@
+/* ==========================================================================
+   Nocturne Jade — IM Studio
+   Mörk, distinkt palett (djup grönsvart + lime/mint-accenter)
+   Drop-in: funkar med din befintliga HTML-struktur/klassnamn.
+   ========================================================================== */
+
+/* ====== Design tokens ====== */
+:root{
+  /* Palette */
+  --bg:#0C1512;           /* djup grönsvart */
+  --fg:#E9F5F0;           /* mild vit m. grön ton */
+  --muted:#8FA7A0;        /* dämpad jade */
+  --card:#111E1A;         /* paneler */
+  --edge:#1E2B25;         /* kantlinjer */
+  --brand:#A8FF60;        /* electric lime */
+  --brand2:#19E6C1;       /* mint/aqua */
+  --ok:#7BE495;           /* success som passar temat */
+
+  /* Layout */
+  --maxw:1120px;
+  --pad:18px;
+  --radius:18px;
+
+  /* Effects */
+  --shadow:0 14px 34px rgba(0,0,0,.36), 0 0 0 1px rgba(25,230,193,.05);
+  --ring:0 0 0 3px rgba(168,255,96,.28);
+}
+
+/* (Valfri) ljus fallback om användaren har light-mode */
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#F4FAF8; --fg:#0E1412; --muted:#5C6F69; --card:#FFFFFF; --edge:#DCE9E4;
+    --shadow:0 12px 28px rgba(12,21,18,.10); --ring:0 0 0 3px rgba(25,230,193,.22);
+  }
+}
+
+/* ====== Base ====== */
+*{ box-sizing:border-box }
+html,body{
+  margin:0; padding:0; background:
+    radial-gradient(1200px 800px at 15% -10%, rgba(25,230,193,.08), transparent),
+    radial-gradient(900px 600px at 110% 20%, rgba(168,255,96,.06), transparent),
+    var(--bg);
+  color:var(--fg);
+  font:16px/1.6 system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif;
+  text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased;
+}
+img{ max-width:100%; display:block }
+a{ color:inherit; text-decoration:none }
+a:hover{ text-decoration:underline }
+:focus-visible{ outline:2px solid transparent; box-shadow:var(--ring) }
+.container{ max-width:var(--maxw); margin:0 auto; padding:0 var(--pad) }
+
+.small{ font-size:.9rem }
+.muted{ color:var(--muted) }
+.center{ text-align:center }
+.prose p{ margin:.6rem 0; max-width:72ch }
+
+/* Headings – kompakt och tydlig */
+h1,h2,h3{ margin:.5rem 0 .4rem }
+h1{ font-size:clamp(2.1rem, 4.6vw, 3.2rem); line-height:1.12; font-weight:800; letter-spacing:-.01em }
+h2{ font-size:clamp(1.5rem, 2.8vw, 2rem); font-weight:800 }
+h3{ font-size:1.15rem; font-weight:700 }
+.section-title{ font-size:1.9rem }
+
+/* Cards */
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)) , var(--card);
+  border:1px solid var(--edge);
+  border-radius:var(--radius);
+  padding:18px;
+  box-shadow:var(--shadow)
+}
+
+/* Buttons */
+.btn{
+  display:inline-flex; align-items:center; gap:.6rem;
+  padding:.9rem 1.1rem; border-radius:14px;
+  border:1px solid var(--edge);
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0));
+  cursor:pointer; text-decoration:none;
+  transition:transform .15s ease, border-color .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+.btn:hover{ transform:translateY(-1px); border-color:transparent; filter:saturate(110%) brightness(105%) }
+.btn--primary{
+  background:linear-gradient(90deg, var(--brand), var(--brand2));
+  color:#0F1311; border:none; text-shadow:0 1px 0 rgba(255,255,255,.25); font-weight:800
+}
+.btn--small{ padding:.55rem .8rem; border-radius:10px }
+
+/* Sections */
+section{ padding:70px 0 }
+.lead{ color:var(--muted); max-width:60ch }
+
+/* ====== Topbar ====== */
+.topbar{
+  position:sticky; top:0; z-index:50;
+  backdrop-filter:saturate(160%) blur(10px);
+  background:linear-gradient(180deg, rgba(12,21,18,.72), rgba(12,21,18,.42));
+  border-bottom:1px solid var(--edge)
+}
+.topbar .inner{ display:flex; align-items:center; justify-content:space-between; height:64px }
+.logo{ display:flex; align-items:center; gap:.6rem; font-weight:700; letter-spacing:.2px }
+.logo .badge{
+  width:28px; height:28px; border-radius:9px;
+  background:
+    radial-gradient(120px 60px at 12% 10%, var(--brand), transparent),
+    radial-gradient(100px 80px at 88% 85%, var(--brand2), transparent),
+    linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.02));
+  box-shadow:0 10px 26px rgba(25,230,193,.15);
+}
+.logo-text b{ font-weight:800 }
+.nav{ display:flex; align-items:center; gap:1rem }
+.nav-toggle{
+  display:none; background:none; border:1px solid var(--edge);
+  border-radius:10px; padding:.5rem .6rem; color:var(--fg)
+}
+.nav-menu{ display:flex; gap:1rem; list-style:none; padding:0; margin:0 }
+.nav-menu a{
+  padding:.5rem .7rem; border-radius:10px; color:var(--muted); text-decoration:none
+}
+.nav-menu a:hover{ color:var(--fg); background:rgba(168,255,96,.08) }
+
+/* ====== Hero ====== */
+.hero{ padding:96px 0 60px }
+.grid-2{ display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:center }
+.eyebrow{ color:var(--muted); letter-spacing:.14em; text-transform:uppercase; font-weight:800; font-size:.78rem }
+.headline .gradient{
+  background:linear-gradient(90deg, var(--brand), var(--brand2));
+  -webkit-background-clip:text; background-clip:text; color:transparent
+}
+.trust{ display:flex; gap:1rem; list-style:none; padding:0; margin:1rem 0 0; color:var(--muted) }
+
+/* Mock preview */
+.hero-card .mock{ border:1px solid var(--edge); border-radius:14px; overflow:hidden }
+.mock-bar{ height:34px; background:linear-gradient(180deg, #0F1D18, #0D1815); border-bottom:1px solid var(--edge) }
+.mock-body{
+  display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:12px;
+  background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0))
+}
+.mock-col{ display:grid; gap:12px }
+.mock-block{ height:110px; border-radius:10px; background:linear-gradient(90deg, rgba(168,255,96,.28), rgba(25,230,193,.24)) }
+.mock-block.small{ height:64px }
+.mock-block.tall{ height:236px }
+
+/* ====== Services / Cards ====== */
+.cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:18px }
+.service h3{ margin-top:.2rem }
+.bullets{ margin:.6rem 0 0; padding-left:1rem }
+.bullets li{ margin:.25rem 0 }
+
+/* ====== Stats ====== */
+.stats{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; align-items:stretch; margin-top:18px }
+.stats > div{
+  background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+  border:1px solid var(--edge); border-radius:14px; padding:16px; text-align:center
+}
+.stats strong{ font-size:1.6rem; display:block }
+.stats span{ color:var(--muted) }
+
+/* ====== Form (tydliga fält mot mörk bakgrund) ====== */
+.form{ margin-top:10px }
+label{ display:block; font-weight:800; color:var(--fg); margin:.6rem 0 .35rem .5rem }
+input, textarea{
+  width:100%; padding:12px 14px; border-radius:12px;
+  background:#0F1B17; color:var(--fg);
+  border:2px solid #224B3F;            /* tydlig jade-kant */
+  transition:border-color .15s, box-shadow .15s, background .15s;
+  margin-bottom:14px
+}
+input:hover, textarea:hover{ border-color:#2C5E4F }
+input:focus, textarea:focus{
+  background:#11211C; border-color:transparent;
+  box-shadow:var(--ring), 0 6px 24px rgba(0,0,0,.25)
+}
+::placeholder{ color:#7FA098; opacity:.95 }
+
+/* ====== Footer ====== */
+.footer{ border-top:1px solid var(--edge); padding:28px 0; color:var(--muted) }
+.foot{ display:flex; align-items:center; justify-content:space-between; gap:12px }
+.foot-nav{ display:flex; gap:12px }
+.foot-nav a{ color:var(--muted); text-decoration:none; padding:.25rem .5rem; border-radius:8px }
+.foot-nav a:hover{ background:rgba(168,255,96,.08); color:var(--fg) }
+
+/* ====== Responsive ====== */
+@media (max-width: 980px){
+  .grid-2{ grid-template-columns:1fr }
+  .cards,.stats{ grid-template-columns:1fr 1fr }
+  .nav-toggle{ display:inline-block }
+  .nav-menu{
+    position:fixed; inset:64px 0 auto 0; background:var(--bg); border-bottom:1px solid var(--edge);
+    transform:translateY(-120%); transition:transform .2s ease; padding:10px var(--pad); flex-direction:column
+  }
+  .nav-menu.is-open{ transform:translateY(0) }
+}
+@media (max-width: 640px){
+  .cards,.stats{ grid-template-columns:1fr }
+  .headline{ font-size:clamp(1.9rem, 8vw, 2.4rem) }
+}

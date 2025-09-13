@@ -1,10 +1,134 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ibraheem Madlool – Utvecklare med fokus på design | Hemsidor & e-handel</title>
+  <meta name="description" content="Utvecklare med fokus på design som bygger snabba, mobilanpassade hemsidor och e-handel efter kundens behov." />
+  <link rel="canonical" href="https://ibraheemm11.github.io/person/" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ibraheem Madlool – Utvecklare med fokus på design" />
+  <meta property="og:description" content="Skräddarsydda webbplatser och e-handel som rankar och konverterar." />
+  <meta property="og:url" content="https://ibraheemm11.github.io/person/" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <header class="topbar" role="banner">
+    <div class="inner container">
+      <a class="logo" href="index.html" aria-label="Startsida">
+        <span class="badge" aria-hidden="true"></span>
+        <span class="logo-text"><b>IM</b> Studio</span>
+      </a>
+      <nav class="nav" aria-label="Huvudmeny">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="menu">Meny</button>
+        <ul id="menu" class="nav-menu">
+          <li><a href="index.html" aria-current="page">Hem</a></li>
+          <li><a href="om-oss.html">Om oss</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
+  <main id="main" class="container" role="main">
+    <section class="hero grid-2" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">Webbutveckling & e-handel</p>
+        <h1 id="hero-title" class="headline">
+          Hemsidor som <span class="gradient">designas efter behov</span> och skalar med din affär
+        </h1>
+        <p class="lead">
+          Jag är utvecklare med fokus på design och användarupplevelse. Jag bygger snabba, mobilanpassade
+          webbplatser och e-handelslösningar skräddarsydda för företag.
+        </p>
+        <a class="btn btn--primary" href="om-oss.html">Lär känna mig</a>
+      </div>
+      <div class="hero-card card">
+        <div class="mock">
+          <div class="mock-bar"></div>
+          <div class="mock-body">
+            <div class="mock-col">
+              <div class="mock-block tall"></div>
+              <div class="mock-block small"></div>
+            </div>
+            <div class="mock-col">
+              <div class="mock-block"></div>
+              <div class="mock-block small"></div>
+              <div class="mock-block"></div>
+            </div>
+          </div>
+        </div>
+        <ul class="trust">
+          <li>Mobil först</li>
+          <li>Core Web Vitals</li>
+          <li>Tillgänglighet</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cards" aria-labelledby="sec-services">
+      <h2 id="sec-services" class="section-title">Vad jag hjälper med</h2>
+      <article class="card service">
+        <h3>Webbplatser</h3>
+        <p>Design & utveckling av snabba, SEO-vänliga hemsidor.</p>
+        <ul class="bullets">
+          <li>Strukturerad information & tydlig navigering</li>
+          <li>Responsiv design</li>
+          <li>On-page SEO från start</li>
+        </ul>
+      </article>
+      <article class="card service">
+        <h3>E-handel</h3>
+        <p>Butiker som konverterar, med smidiga flöden från produkt till checkout.</p>
+        <ul class="bullets">
+          <li>Produktstruktur & filter</li>
+          <li>Snabba sidor & optimerade bilder</li>
+          <li>Spårning & mätning</li>
+        </ul>
+      </article>
+      <article class="card service">
+        <h3>Förvaltning & förbättring</h3>
+        <p>Löpande optimering för fart, tillgänglighet och ranking.</p>
+        <ul class="bullets">
+          <li>Core Web Vitals</li>
+          <li>Innehåll & internlänkar</li>
+          <li>A/B-test av CTA:er</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="stats" aria-labelledby="sec-values">
+      <h2 id="sec-values" class="section-title center">Värden jag prioriterar</h2>
+      <div><strong>Snabbhet</strong><span>Låg TTFB & LCP</span></div>
+      <div><strong>Struktur</strong><span>Klar navigering & semantik</span></div>
+      <div><strong>Design</strong><span>Pixelperfekt & tillgänglig</span></div>
+    </section>
+
+    <section class="form" aria-labelledby="sec-contact">
+      <h2 id="sec-contact" class="section-title">Intresserad?</h2>
+      <p class="muted">Skriv ett kort meddelande så återkommer jag.</p>
+      <form method="post" action="#" onsubmit="return false;">
+        <label for="namn">Namn</label>
+        <input id="namn" name="namn" autocomplete="name" required />
+        <label for="epost">E-post</label>
+        <input id="epost" name="epost" type="email" autocomplete="email" required />
+        <label for="meddelande">Meddelande</label>
+        <textarea id="meddelande" name="meddelande" rows="5" required></textarea>
+        <button class="btn btn--primary" type="submit">Skicka</button>
+      </form>
+      <p class="small muted">Formuläret är exempel. Koppla valfritt backend senare.</p>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container foot">
+      <p>&copy; <span id="year"></span> IM Studio</p>
+      <nav class="foot-nav" aria-label="Sidfotsmeny">
+        <a href="index.html" aria-current="page">Hem</a>
+        <a href="om-oss.html">Om oss</a>
+      </nav>
+    </div>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  </footer>
 </body>
 </html>

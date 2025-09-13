@@ -1,10 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Om oss – Ibraheem Madlool</title>
+  <meta name="description" content="Bakgrund och arbetssätt för Ibraheem Madlool – utvecklare med fokus på design." />
+  <link rel="canonical" href="https://ibraheemm11.github.io/person/om-oss.html" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <header class="topbar">
+    <div class="inner container">
+      <a class="logo" href="index.html" aria-label="Till startsidan">
+        <span class="badge" aria-hidden="true"></span>
+        <span class="logo-text"><b>IM</b> Studio</span>
+      </a>
+      <nav class="nav" aria-label="Huvudmeny">
+        <ul class="nav-menu">
+          <li><a href="index.html">Hem</a></li>
+          <li><a href="om-oss.html" aria-current="page">Om oss</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
+  <main class="container">
+    <nav aria-label="Brödsmulor" class="small muted" style="margin-top:12px">
+      <a href="index.html">Hem</a> › <span aria-current="page">Om oss</span>
+    </nav>
+
+    <article class="prose">
+      <h1>Om Ibraheem</h1>
+      <p class="lead">Utvecklare med fokus på design som formar lösningar efter kundens behov – inklusive e-handel.</p>
+      <h2>Arbetssätt</h2>
+      <ul class="bullets">
+        <li>Behov först – design efter målgrupp</li>
+        <li>Prestanda & SEO som standard</li>
+        <li>Tillgänglighet och tydlig struktur</li>
+      </ul>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container foot">
+      <p>&copy; <span id="year2"></span> IM Studio</p>
+      <nav class="foot-nav">
+        <a href="index.html">Hem</a>
+        <a href="om-oss.html" aria-current="page">Om oss</a>
+      </nav>
+    </div>
+    <script>document.getElementById('year2').textContent = new Date().getFullYear();</script>
+  </footer>
 </body>
 </html>
